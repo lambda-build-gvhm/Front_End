@@ -1,0 +1,19 @@
+.login{
+    margin: 20% auto;
+    max-width: 30%;
+    border-radius: 8px;
+    background: gray;
+    padding: .5%
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 30%;
+}
+form input{
+    border-radius: 8px;
+    margin: 1%;
+    text-align: center;
+}
+
