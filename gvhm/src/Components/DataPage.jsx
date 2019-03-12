@@ -1,9 +1,11 @@
 import React from 'react';
 
+import NavBar from './NavBar'
+
 const DataPage = (props) => {
     return ( 
         <div className="mainpage">
-            <h1>Gun Violence Heat Map</h1>
+            <NavBar {...props }/>
             <div className="flex-container">
             <iframe 
                 src="https://plot.ly/~krsmith/2.embed"         
