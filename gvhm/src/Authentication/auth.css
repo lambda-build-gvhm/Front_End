@@ -5,26 +5,36 @@
     background: rgb(39, 38, 38);
     padding: .5%;
     font-size: 1.4rem;
+    border:2px solid #E44C65;
     /* text-shadow:
         -1px -1px 1px #E44C65,
         1px -1px 1px #E44C65,
         -1px 1px 1px #E44C65,
-        1px 1px 1px #E44C65; */
+        1px 1px 1px #E44C65;  */
 }
 form{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     width: 30%;
+    
 }
 form input{
     border-radius: 8px;
+    border-color: #E44C65;
     margin: 1%;
     text-align: center;
-    height: 1.5rem;
+    height: 1.9rem;
+    background: rgb(26, 24, 24);
+    color: #E44C65;
 }
 
-form button{
+button{
     height: 1.8rem;
+}
+button:hover{
+    transform: scale(1.1);
+    color:rgb(26, 24, 24);
+    background: #E44C65
 }
 

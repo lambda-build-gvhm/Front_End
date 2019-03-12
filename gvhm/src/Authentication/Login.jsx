@@ -47,7 +47,9 @@ const Login = (props) => {
                 />
                 <button>Log in</button>
             </form>
-            <button className='register-button' onClick={e => loginRegister(e)}>Register</button>  
+            <h3>Or</h3>
+            <h3>Register & Login</h3>
+            <button className='register-button' onClick={e => loginRegister(e)}>Sign Me Up!</button>  
         </div>
      );
 }
