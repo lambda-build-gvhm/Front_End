@@ -2,8 +2,14 @@
     margin: 20% auto;
     max-width: 30%;
     border-radius: 8px;
-    background: gray;
-    padding: .5%
+    background: rgb(39, 38, 38);
+    padding: .5%;
+    font-size: 1.4rem;
+    /* text-shadow:
+        -1px -1px 1px #E44C65,
+        1px -1px 1px #E44C65,
+        -1px 1px 1px #E44C65,
+        1px 1px 1px #E44C65; */
 }
 form{
     display: flex;
@@ -15,5 +21,10 @@ form input{
     border-radius: 8px;
     margin: 1%;
     text-align: center;
+    height: 1.5rem;
+}
+
+form button{
+    height: 1.8rem;
 }
 
