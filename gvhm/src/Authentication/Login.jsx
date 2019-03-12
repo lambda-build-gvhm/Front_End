@@ -12,10 +12,9 @@ const Login = (props) => {
 
     const loginRegister = e => {
         e.preventDefault()
-        // axios.post(`http://localhost:5000/api/${ e.target.className !== 'registration-button' ? 'login' : 'register'}`, user)
-        //     .then(res => {localStorage.setItem('token', res.data.payload); this.props.history.push('/')})
-        //     .catch(err => console.log(err))
-            localStorage.setItem('token', 'bsToken')
+        axios.post(`https://gvheatmap.herokuapp.com/api/${ e.target.className !== 'registration-button' ? 'login' : 'register'}`, user)
+            .then(res => {localStorage.setItem('token', res.data); props.history.push('/')})
+            .catch(err => console.log(err))
             console.log(e.target)
             setPassText('');
             setUsernameText('')
