@@ -1,11 +1,11 @@
 .login{
-    margin: 20% auto;
+    margin: 15% auto;
     max-width: 30%;
     border-radius: 8px;
     background: rgb(39, 38, 38);
     padding: .5%;
     font-size: 1.4rem;
-    border:2px solid #E44C65;
+    border: 2px solid #E44C65;
     /* text-shadow:
         -1px -1px 1px #E44C65,
         1px -1px 1px #E44C65,
@@ -31,10 +31,15 @@ form input{
 
 button{
     height: 1.8rem;
+    background: rgb(26, 24, 24);
+    color: #E44C65;
+    
 }
 button:hover{
     transform: scale(1.1);
-    color:rgb(26, 24, 24);
-    background: #E44C65
+    color:white;
+    background: #E44C65;
+    border-color: rgb(26, 24, 24);
+    
 }
 

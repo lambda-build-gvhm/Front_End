@@ -24,10 +24,7 @@ const Login = (props) => {
 
     return ( 
         <div className='login'>
-            <h2>Please Enter a username and password</h2>
-            <h4>No Account?</h4>
-            <h4>No Problem</h4>
-            <h4>Just Submit the Login Creds and We Will Make One For You</h4>
+            <h2>Please Enter Your Username and Password</h2>
             <form onSubmit={(e) => loginRegister(e)} >
                 <input
                     type="text"
@@ -47,8 +44,9 @@ const Login = (props) => {
                 />
                 <button>Log in</button>
             </form>
-            <h3>Or</h3>
-            <h3>Register & Login</h3>
+            <h4>No Account?</h4>
+            <h4>No Problem</h4>
+            <h4>Just Submit the Login Creds and We Will Make One For You</h4>
             <button className='register-button' onClick={e => loginRegister(e)}>Sign Me Up!</button>  
         </div>
      );
