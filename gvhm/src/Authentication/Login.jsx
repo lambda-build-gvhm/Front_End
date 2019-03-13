@@ -14,12 +14,17 @@ const Login = (props) => {
        username: usernameInput,
        password: passInput,
    }
-   
 
-    const loginRegister = e => {
+    const loginRegister = ( e, target ) => {
         e.preventDefault()
-        axios.post(`https://gvheatmap.herokuapp.com/api/${ e.target.className !== 'register-button' ? 'login' : 'register'}`, user)
-            .then(res => {localStorage.setItem('token', res.data); props.history.push('/')})
+        return axios.post(`https://gvheatmap.herokuapp.com/api/${ e.target.className == 'register-button' && target !== 'login' ? 'register' : 'login' }`, user)
+            .then(res => { console.log(res.data);
+                localStorage.setItem('token', res.data.jwt); 
+                localStorage.setItem('username', res.data.username); 
+                localStorage.setItem('userPass', res.data.pass);
+                localStorage.setItem('userID', res.data.id) 
+                props.history.push('/')
+            })
             .catch(err => { alert(`Failed to login. Due to ${err}`);setPassText('');setUsernameText('') })
         }
 
@@ -27,7 +32,7 @@ const Login = (props) => {
     return ( 
         <div className='login'>
             <h2>Please Enter Your Username and Password</h2>
-            <form onSubmit={(e) => loginRegister(e)} >
+            <form onSubmit={(e) => loginRegister(e, 'bstarget')} >
                 <input
                     type="text"
                     name="username"
@@ -49,7 +54,7 @@ const Login = (props) => {
             <h4>No Account?</h4>
             <h4>No Problem</h4>
             <h4>Just Submit the Login Creds and We Will Make One For You</h4>
-            <button className='register-button' onClick={e => loginRegister(e)}>Sign Me Up!</button>  
+            <button className='register-button' onClick={e => {loginRegister(e, 'bstarget').then(() => loginRegister(e, 'login'))} }>Sign Me Up!</button>  
         </div>
      );
 }
