@@ -2,23 +2,25 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import './auth.css'
 
+
+
+
 const Login = (props) => {
     const [usernameInput, updateUsernameInput, setUsernameText] = useInput()
     const [passInput, updatePassInput, setPassText] = useInput()
 
-    const user = {
-        username: usernameInput,
-        password: passInput,
-    } 
     
+   const user = {
+       username: usernameInput,
+       password: passInput,
+   }
+   
 
     const loginRegister = e => {
         e.preventDefault()
         axios.post(`https://gvheatmap.herokuapp.com/api/${ e.target.className !== 'register-button' ? 'login' : 'register'}`, user)
             .then(res => {localStorage.setItem('token', res.data); props.history.push('/')})
-            .catch(err => alert(`Failed to login. ${err}`))
-            setPassText('');
-            setUsernameText('')
+            .catch(err => { alert(`Failed to login. Due to ${err}`);setPassText('');setUsernameText('') })
         }
 
 
@@ -51,6 +53,8 @@ const Login = (props) => {
         </div>
      );
 }
+
+
 
 const useInput = () =>{
     const [inputText, setInputText] = useState('')

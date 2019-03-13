@@ -1,5 +1,6 @@
 import React from 'react';
-import user from '../Authentication/Login'
+
+import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
 
@@ -7,11 +8,16 @@ const NavBar = (props) => {
         localStorage.clear();
         props.history.push('/')
     }
+
     return ( 
         <header className='header'>
             <h1>Gun Violence Heat Map</h1>
-            <span>{user.username}</span>
-            <button onClick={() => logout()}>Logout</button>
+            <div className='button-container'>
+                {props.match.path !== "/editaccnt" 
+                    ? <Link className='accnt-link' to='/editaccnt'><button>Account</button></Link> 
+                    : <Link className='accnt-link' to='/'><button>Home</button></Link>}
+                <button onClick={() => logout()}>Logout</button>
+            </div>
         </header>
      );
 }

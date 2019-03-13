@@ -7,6 +7,7 @@ import {
 import PrivateRoute from './Authentication/PrivateRoute'
 import Login from './Authentication/Login'
 import DataPage from './Components/DataPage'
+import EditAccnt from './Components/EditAccnt'
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
         <>
           <Route path="/login" component={Login} />
           <PrivateRoute exact path="/" component={DataPage} />
+          <PrivateRoute path="/editaccnt" component={EditAccnt} />
         </>
       </Router>
     );
