@@ -1,111 +1,47 @@
-import React, {useState} from 'react';
 
+//-- Dependencies --------------------------------
+import React from 'react';
 import NavBar from './NavBar'
+import Tabs from './tabs';
 
-const DataPage = (props) => {
-    const [selectedStateTabTitle, setSelectedStateTab] = useState('state-5-year')
-    const [selectedCountyTabTitle, setSelectedCountyTab] = useState('county-5-year')
-    const [currentActiveTab, setCurrentActiveTab] = useState('')
+//-- Constant Data -------------------------------
+function tabData(title, description, url) {
+    return {
+        title: title,
+        description: description,
+        url: url,
+    };
+} 
+const TABS_BY_STATE = [
+    tabData('state-5-year', 'Last 5 Years', 'https://plot.ly/~krsmith/2.embed'),
+    tabData('state-2014', '2014', '//plot.ly/~krsmith/20.embed'),
+    tabData('state-2015', '2015', '//plot.ly/~krsmith/22.embed'),
+    tabData('state-2016', '2016', '//plot.ly/~krsmith/24.embed'),
+    tabData('state-2017', '2017', '//plot.ly/~krsmith/26.embed'),
+    tabData('state-2018', '2018', '//plot.ly/~krsmith/28.embed'),
+];
+const TABS_BY_COUNTY = [
+    tabData('county-5-year', 'Last 5 Years', '//plot.ly/~krsmith/4.embed'),
+    tabData('county-2014', '2014', '//plot.ly/~krsmith/10.embed'),
+    tabData('county-2015', '2015', '//plot.ly/~krsmith/12.embed'),
+    tabData('county-2016', '2016', '//plot.ly/~krsmith/14.embed'),
+    tabData('county-2017', '2017', '//plot.ly/~krsmith/16.embed'),
+    tabData('county-2018', '2018', '//plot.ly/~krsmith/18.embed'),
+];
 
-    const setActiveState = e =>{
-        setCurrentActiveTab(e.currentTarget)
-        currentActiveTab.classList.remove('active-tab')
-        setSelectedStateTab(e.currentTarget.dataset.title)
-        e.currentTarget.classList.add('active-tab')
-        
-    }
-
-    // handleTabChange = (newTabElement) => {
-    //     currentTab = getTheCurrentTabFromState();
-    //     currentTab.classList.remove('active-tab');
-    //     newTabElement.classList.add('active-tab');
-    //     setTheCurrentTabOnState(newTabElement);
-    // }
-    
-
-    const setActiveCounty = e =>{
-        setSelectedCountyTab(e.currentTarget.dataset.title)
-
-    }
-
+//-- Render --------------------------------------
+export default (props) => {
     return ( 
         <div className="mainpage">
             <NavBar {...props } />
             <div className="flex-container">
 
                 {/*State Tabs Selector*/}
-                <div className="tab-comp-container">
-                    <div className="tabs">
-                    {
-                        [
-                        <div className="tab active-tab" data-title='state-5-year' onClick={(e) => setActiveState(e)} >
-                            <p>Last 5 Years</p>
-                        </div>,
-                        <div className="tab" data-title='state-2014' onClick={(e) => setActiveState(e)}>
-                            <p>2014</p>
-                        </div>,
-                        <div className="tab" data-title='state-2015' onClick={(e) => setActiveState(e)}>
-                            <p>2015</p>
-                        </div>,
-                        <div className="tab" data-title='state-2016' onClick={(e) => setActiveState(e)}>
-                            <p>2016</p>
-                        </div>,
-                        <div className="tab" data-title='state-2017' onClick={(e) => setActiveState(e)}>
-                            <p>2017</p>
-                        </div>,
-                        <div className="tab" data-title='state-2018' onClick={(e) => setActiveState(e)}>
-                            <p>2018</p>
-                        </div>].map(tab => tab) 
-                    }
-                    </div>
-
-                    <div className="">
-                        { 
-                        [   <iframe title='state-5-year' src="https://plot.ly/~krsmith/2.embed" height="600" width='100%' scrolling="no" frameBorder="0" />, 
-                            <iframe title='state-2014' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/20.embed" />,
-                            <iframe title='state-2015' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/22.embed" />, 
-                            <iframe title='state-2016' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/24.embed" />,
-                            <iframe title='state-2017' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/26.embed" />,
-                            <iframe title='state-2018' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/28.embed" />]
-                                .filter(graphic => graphic.props.title == selectedStateTabTitle)
-                        }
-                    </div>
-                </div>
+                <Tabs tabs={TABS_BY_STATE} />
 
                 {/*County Maps Tab selector */}
-                <div className="tab-comp-container">
-                    <div className="tabs">
-                        <div className="tab active-tab" data-title='county-5-year' onClick={(e) => setActiveCounty(e)}>
-                            <p>Last 5 years</p>
-                        </div>
-                        <div className="tab" data-title='county-2014' onClick={(e) => setActiveCounty(e)}>
-                            <p>2014</p>
-                        </div>
-                        <div className="tab" data-title='county-2015' onClick={(e) => setActiveCounty(e)}>
-                            <p>2015</p>
-                        </div>
-                        <div className="tab" data-title='county-2016' onClick={(e) => setActiveCounty(e)}>
-                            <p>2016</p>
-                        </div>
-                        <div className="tab" data-title='county-2017' onClick={(e) => setActiveCounty(e)}>
-                            <p>2017</p>
-                        </div>
-                        <div className="tab" data-title='county-2018' onClick={(e) => setActiveCounty(e)}>
-                            <p>2018</p>
-                        </div>
-                    </div>
-                    <div className="">
-                        {
-                        [<iframe title='county-5-year' height="600" width='100%' frameborder="0" scrolling="no" src="//plot.ly/~krsmith/4.embed" />,
-                            <iframe title='county-2014' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/10.embed" />,
-                            <iframe title='county-2015' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/12.embed" />,
-                            <iframe title='county-2016' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/14.embed" />,
-                            <iframe title='county-2017' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/16.embed" />,
-                            <iframe title='county-2018' width="100%" height="600" frameborder="0" scrolling="no" src="//plot.ly/~krsmith/18.embed" />,]
-                                .filter(graphic =>  graphic.props.title == selectedCountyTabTitle)
-                        }
-                    </div>
-                </div>
+                <Tabs tabs={TABS_BY_COUNTY} />
+
                 {/* Additional Graphics */}
                 <div className="iframecontainer">
                     <iframe
@@ -126,7 +62,5 @@ const DataPage = (props) => {
 
             </div>
         </div>
-     );
+    );
 }
- 
-export default DataPage;
