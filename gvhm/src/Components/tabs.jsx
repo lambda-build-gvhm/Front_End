@@ -11,20 +11,25 @@
             title(string): A unique string
             description(string): The text to show in the clickable tab
             url(string): The URL of a web page to be shown in the iFrame
-        focusTitle(string): The title of the currently focused tab
-        onClick(function): A function which changes the focused tab title.
 
 */
 
 //-- Dependencies --------------------------------
-import React from 'react';
+import React, {useState} from 'react';
 
 //-- Main Component (tab container) --------------
 export default function(props) {
     // Get data from props
     const tabsData = props.tabs;
-    const focusTitle = props.focusTitle;
-    const onClick = props.onClick;
+    if(!tabsData.length) {
+        return '';
+    }
+    // State Management (hooks)
+    const firstTab = tabsData[0];
+    const [focusTitle, setFocusedTab] = useState(firstTab.title);
+    function onClick(eventClick) {
+        setFocusedTab(eventClick.currentTarget.dataset.title);
+    }
     // Get the focused tab (only one)
     let focusedTab = tabsData.filter(tab => tab.title === focusTitle);
     focusedTab = focusedTab[0];

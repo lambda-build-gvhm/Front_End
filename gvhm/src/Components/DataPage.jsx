@@ -1,6 +1,6 @@
 
 //-- Dependencies --------------------------------
-import React, {useState} from 'react';
+import React from 'react';
 import NavBar from './NavBar'
 import Tabs from './tabs';
 
@@ -31,34 +31,16 @@ const TABS_BY_COUNTY = [
 
 //-- Render --------------------------------------
 export default (props) => {
-    // Hooks
-    const [selectedStateTabTitle, setSelectedStateTab] = useState('state-5-year')
-    const [selectedCountyTabTitle, setSelectedCountyTab] = useState('county-5-year')
-    function setActiveCounty(eventClick) {
-        setSelectedCountyTab(eventClick.currentTarget.dataset.title);
-    }
-    function setActiveState(eventClick) {
-        setSelectedStateTab(eventClick.currentTarget.dataset.title);
-    }
-    // JSX Structure
     return ( 
         <div className="mainpage">
             <NavBar {...props } />
             <div className="flex-container">
 
                 {/*State Tabs Selector*/}
-                <Tabs
-                    tabs={TABS_BY_STATE}
-                    focusTitle={selectedStateTabTitle}
-                    onClick={setActiveState}
-                />
+                <Tabs tabs={TABS_BY_STATE} />
 
                 {/*County Maps Tab selector */}
-                <Tabs
-                    tabs={TABS_BY_COUNTY}
-                    focusTitle={selectedCountyTabTitle}
-                    onClick={setActiveCounty}
-                />
+                <Tabs tabs={TABS_BY_COUNTY} />
 
                 {/* Additional Graphics */}
                 <div className="iframecontainer">
