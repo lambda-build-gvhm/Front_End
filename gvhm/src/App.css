@@ -26,6 +26,7 @@ header{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  /* background-image: url(https://cdn.wallpapersafari.com/48/46/20Y7uf.jpg); */
   background: black;
 }
 header button{
@@ -44,7 +45,12 @@ header .button-container{
   margin: 15% auto 0;
 }
 h1{
-  margin: .75% 32% auto auto; 
+  margin: .75% 32% auto auto;
+  text-shadow:
+        -4px -4px 4px #E44C65,
+        4px -4px 4px #E44C65,
+        -4px 4px 4px #E44C65,
+        4px 4px 4px #E44C65; 
 }
 .iframecontainer{
     border-radius: 8px;

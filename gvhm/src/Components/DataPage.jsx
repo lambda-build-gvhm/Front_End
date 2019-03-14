@@ -12,33 +12,33 @@ const DataPage = (props) => {
                     src="https://plot.ly/~krsmith/2.embed"         
                     height="600" width='100%'         
                     scrolling="no" seamless="seamless"         
-                    frameBorder="0"> 
-                </iframe>
+                    frameBorder="0" 
+                /> 
+                
             </div>
             <div className="iframecontainer">
                 <iframe
-                    className="lastgraph" 
                     height="600" width='100%'  
                     frameborder="0" 
                     scrolling="no" 
-                    src="//plot.ly/~krsmith/4.embed">
-                </iframe>
+                    src="//plot.ly/~krsmith/4.embed"
+                />
+            </div>
+            <div className="iframecontainer">
+                <iframe 
+                    src="//plot.ly/~otillieodd/137.embed"
+                    height="600" width='100%'  
+                    frameborder="0" 
+                    scrolling="no" 
+                />
             </div>
             <div className="iframecontainer">
                 <iframe 
                     height="600" width='100%'  
                     frameborder="0" 
                     scrolling="no" 
-                    src="//plot.ly/~otillieodd/137.embed">
+                    src="//plot.ly/~otillieodd/160.embed">
                 </iframe>
-            </div>
-            <div className="iframecontainer">
-            <iframe 
-                height="600" width='100%'  
-                frameborder="0" 
-                scrolling="no" 
-                src="//plot.ly/~otillieodd/160.embed">
-            </iframe>
             </div>
             </div>
         </div>
