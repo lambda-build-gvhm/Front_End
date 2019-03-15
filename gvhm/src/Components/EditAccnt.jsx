@@ -36,32 +36,35 @@ const EditAccnt = (props) => {
     return ( 
         <>
         <NavBar {...props } />
-        <form className='update-form' onSubmit={e => updateAccnt(e)}>
-            <input 
-                type="text"
-                name="username"
-                placeholder={activeUser.username}
-                value={usernameInput}
-                onChange={e => updateUsernameInput(e)}
-            />
-            <input 
-                type="password"
-                name="password"
-                placeholder="New Password"
-                value={newPassInput}
-                onChange={e => updateNewPassInput(e)}
-            />
-            {/* <input 
-                type="password"
-                name="password"
-                placeholder="Confirm Password"
-                value={confirmPassInput}
-                onChange={e => updateConfirmPassInput(e)}
-                
-            /> */}
-            <button>Update</button>
-        </form>
-        <button onClick={() => deleteAccnt()}>Hell Just Delete All My shit you are depressing</button>
+        <div className="update-form">
+            <h3>Please Fill in the Credentials You want to Have Replaced</h3>
+            <form className='update-form' onSubmit={e => updateAccnt(e)}>
+                <input 
+                    type="text"
+                    name="username"
+                    placeholder={activeUser.username}
+                    value={usernameInput}
+                    onChange={e => updateUsernameInput(e)}
+                />
+                <input 
+                    type="password"
+                    name="password"
+                    placeholder="New Password"
+                    value={newPassInput}
+                    onChange={e => updateNewPassInput(e)}
+                />
+                {/* <input 
+                    type="password"
+                    name="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassInput}
+                    onChange={e => updateConfirmPassInput(e)}
+                    
+                /> */}
+                <button>Update</button>
+            </form>
+            <button onClick={() => deleteAccnt()}>Delete My Account</button>
+        </div>
         </>
      );
 }
