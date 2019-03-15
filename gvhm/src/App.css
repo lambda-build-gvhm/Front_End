@@ -22,30 +22,31 @@ button{
   overflow: hidden;
 }
 header{
-  text-align:center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  text-align: center;
   /* background-image: url(https://cdn.wallpapersafari.com/48/46/20Y7uf.jpg); */
   background: black;
 }
+.header-content {
+  margin: 0 auto;
+  max-width: 950px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
 header button{
-  align-self: flex-end;
-  margin-right: 3%;
+  margin-left: 1rem;
 }
 header .button-container{
   display: flex;
   flex-direction: row;
-  margin: 0 3% 1%;
-}
-.accnt-link{
-  margin: 25px 5% auto auto;
+  justify-content: space-between;
+  align-items: center;
 }
 .update-form{
   margin: 15% auto 0;
 }
 h1{
-  margin: .75% 32% auto auto;
   text-shadow:
         -4px -4px 4px #E44C65,
         4px -4px 4px #E44C65,
