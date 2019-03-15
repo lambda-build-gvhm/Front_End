@@ -8,10 +8,10 @@ const EditAccnt = (props) => {
     /* These are destructed arrays from the Custom react Hook below the Component mapped for use. Order matters*/
     const [usernameInput, updateUsernameInput] = useInput()
     const [newPassInput, updateNewPassInput] = useInput()
-    const [confirmPassInput, updateConfirmPassInput] = useInput()
+    // const [confirmPassInput, updateConfirmPassInput] = useInput()
     
     const activeUser = {
-        user: localStorage.getItem("username"),
+        username: localStorage.getItem("username"),
         id: localStorage.getItem('userID')
     }
 
@@ -21,13 +21,12 @@ const EditAccnt = (props) => {
     }
 
     const deleteAccnt = () => {
-        axios.delete(`https://gvheatmap.herokuapp.com/api/delete/delete/${activeUser.id}`, { headers: {Authorization:localStorage.getItem('token')} })
+        axios.delete(`https://gvheatmap.herokuapp.com/api/delete/delete/${activeUser.id}`, { headers: {Authorization:localStorage.getItem('token')}} )
             .then(res => {alert(`${res.data.message}`); localStorage.clear(); props.history.push('/')} )
             .catch(err => console.log(err))   
       }
 
     const updateAccnt = (e) =>{
-        console.log(activeUser.id);
         e.preventDefault()
         axios.put(`https://gvheatmap.herokuapp.com/api/update/${activeUser.id}`, updatedUser)
             .then(res => {localStorage.setItem('username', res.data.username); props.history.push('/')})
@@ -41,7 +40,7 @@ const EditAccnt = (props) => {
             <input 
                 type="text"
                 name="username"
-                placeholder={activeUser.user}
+                placeholder={activeUser.username}
                 value={usernameInput}
                 onChange={e => updateUsernameInput(e)}
             />
@@ -52,14 +51,14 @@ const EditAccnt = (props) => {
                 value={newPassInput}
                 onChange={e => updateNewPassInput(e)}
             />
-            <input 
+            {/* <input 
                 type="password"
                 name="password"
                 placeholder="Confirm Password"
                 value={confirmPassInput}
                 onChange={e => updateConfirmPassInput(e)}
                 
-            />
+            /> */}
             <button>Update</button>
         </form>
         <button onClick={() => deleteAccnt()}>Hell Just Delete All My shit you are depressing</button>

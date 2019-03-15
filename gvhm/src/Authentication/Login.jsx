@@ -19,7 +19,7 @@ const Login = (props) => {
        password: passInput,
    }
 /* This is a dual event handler For both the registration and login axios post requests to the server.
-   Toggled by targeted element className <Target parameter> that is used to determin which API endpoint to hit
+   Toggled by targeted element className <Target parameter> that is used to determine which API endpoint to hit
    and determine whether the user would be registered or checked against the database of users and hashed password as confirmation.
 */
     const loginRegister = ( e, target = '' ) => {
@@ -93,5 +93,3 @@ const useInput = () =>{
 }
 
 export default Login;
-
-

@@ -52,8 +52,33 @@ h1{
         -4px 4px 4px #E44C65,
         4px 4px 4px #E44C65; 
 }
+.tab-comp-container{
+  border-radius: 5;
+  border-top: none;
+  border-radius: 8px;
+  border: 4px solid #E44C65;
+  margin: 3% 0;
+}
+.tabs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #E44C65; 
+  /* border-radius: 5px 5px 0 0; */
+  /* margin: 2% 3% 0 3%; */
+}
+.tab{
+  border-radius: 8px 8px 0 0;
+}
+.active-tab{
+  background: #111111;
+  border: 4px solid #E44C65;
+  border-bottom: none;
+  color:#E44C65;
+  padding: 0 65px;
+}
 .iframecontainer{
     border-radius: 8px;
-    border: 3px solid #E44C65;
-    margin: 3%;
+    border: 4px solid #E44C65;
+    margin:  0 0 3% 0 ;
 }
