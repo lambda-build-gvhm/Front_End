@@ -28,6 +28,18 @@ header{
   flex-wrap: nowrap;
   /* background-image: url(https://cdn.wallpapersafari.com/48/46/20Y7uf.jpg); */
   background: black;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+}
+h1{
+  margin: auto auto;
+  justify-self: center;
+  text-shadow:
+        -4px -4px 4px #E44C65,
+        4px -4px 4px #E44C65,
+        -4px 4px 4px #E44C65,
+        4px 4px 4px #E44C65; 
 }
 header button{
   align-self: flex-end;
@@ -36,21 +48,16 @@ header button{
 header .button-container{
   display: flex;
   flex-direction: row;
-  margin: 0 3% 1%;
+  position: fixed;
+  width: 10%;
+  margin-top: 20px;
+  right: 25px;
 }
 .accnt-link{
-  margin: 25px 5% auto auto;
+  margin: auto 5% auto auto;
 }
 .update-form{
   margin: 15% auto 0;
-}
-h1{
-  margin: .75% 32% auto auto;
-  text-shadow:
-        -4px -4px 4px #E44C65,
-        4px -4px 4px #E44C65,
-        -4px 4px 4px #E44C65,
-        4px 4px 4px #E44C65; 
 }
 .tab-comp-container{
   border-radius: 5;
